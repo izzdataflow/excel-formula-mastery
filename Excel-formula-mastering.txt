@@ -1,0 +1,109 @@
+Excel-formula-mastery
+
+excel-test-basic-1
+
+1.=LEFT(C5,3), =CONCAT(D5,G5), =XLOOKUP(C5,'Data Staff'!$C$5:$C$24,'Data Staff'!$D$5:$D$24), =RIGHT(F5,3), =IF(J5>=1250000,(J5*0.3%),0)
+
+2.=SWITCH(RIGHT(C5,1),"S","Single","M","Married"), =IF(E5="Baru",INDEX($C$23:$C$28,MATCH(C5,$B$23:$B$28)),IF(E5="Junior",INDEX($D$23:$D$28,MATCH(C5,$B$23:$B$28)),IF(E5="Senior",INDEX($E$23:$E$28,MATCH(C5,$B$23:$B$28)),"Unknown")))
+
+3.=IF(LEFT(A5,1)="a","Beras",IF(LEFT(A5,1)="b","Gula")), =SWITCH(RIGHT(A5,2),"yn","Yuni","rd","Rudi","mn","Muna","yd","Yudi")
+
+4.=D4*C4, =SUM(E4:E8), =AVERAGE(E4:E8), =MAX(E4:E8), =MIN(E4:E8), =LEFT(B4,2), =MID(B4,3,6), =RIGHT(B4,1),=IF(G16>300,"A",IF(G16>=280,"B",IF(G16<280,"C"))), =VLOOKUP(A3,$A$17:$D$20,2,FALSE), =HLOOKUP(F3,$G$16:$J$19,2,FALSE), =COUNTIF(B3:B7,"LULUS"), =SUMIF($G$3:$G$12,1,$H$3:$H$12), UPPER, PROPER, LOWER
+
+5.=XLOOKUP(LEFT(C7,3),$B$27:$B$30,$C$27:$C$30), =SUM(L7:L16), =SUMIF(H7:H16,"VIP",L7:L16)
+
+6.==XLOOKUP(C5,$B$19:$B$21,$C$19:$C$21), =VLOOKUP(C5,$B$19:$D$21,3,FALSE), =HLOOKUP(C5,$G$18:$I$19,2)*G5, =IF(B5<DATE(2023,7,10),XLOOKUP(D5,$C$25:$E$25,$C$26:$E$26),"CD Blank"), =SWITCH(TRUE,I5>1500000,4,I5>1000000,3,I5>500000,2,I5<=500000,1)
+
+7.=SWITCH(TRUE,E5<=3,(XLOOKUP(C5,$B$19:$B$22,$F$19:$F$22)*E5),E5>3,XLOOKUP(C5,$B$19:$B$22,$F$19:$F$22)*4), =IF(D5="NIKAH",XLOOKUP(C5,$B$19:$B$22,$E$19:$E$22),0), =HLOOKUP(F5,$I$18:$L$19,2)
+
+excel-test-basic-2
+
+1.=SWITCH(TRUE,F3="K",D3*1.25,F3="T",D3), =SWITCH(TRUE,AND(F3="T",E3>10),H3*10%,,,0)
+
+2.=XLOOKUP(LEFT(B5,2),$B$23:$B$32,$C$23:$C$32), =SWITCH(TRUE,C5="Airlangga",F5*10%,C5="Gunung Agung",F5*15%,C5="Balai Pustaka",F5*20%,,,0)
+
+3.=IF(D6="D",XLOOKUP(E6,$C$30:$C$32,$F$30:$F$32),IF(D6="S",XLOOKUP(E6,$C$30:$C$32,$G$30:$G$32),IF(D6="F",XLOOKUP(E6,$C$30:$C$32,$E$30:$E$32)))), =SWITCH(D20,"D",XLOOKUP(E20,$C$30:$C$32,$F$30:$F$32),"F",XLOOKUP(E20,$C$30:$C$32,$E$30:$E$32),"S",XLOOKUP(E20,$C$30:$C$32,$G$30:$G$32)), =INDEX($E$30:$G$32,MATCH(E20,$C$30:$C$32,0),MATCH(D20,$E$29:$G$29,0))
+
+4.LEFT, =SWITCH(TRUE,(MID(B5,4,1)="2"),"Menikah",(MID(B5,4,1)="1"),"Lajang"), =INDEX($G$18:$J$18,MATCH(RIGHT(B5,1),$G$17:$J$17)), =SWITCH(TRUE,OR(F5="Pelajar",D5="SP"),H5*15%,,,0)
+
+5.=INDEX(Jabatan!$D$5:$D$9,MATCH('Daftar Gaji Karyawan'!E8,Jabatan!$C$5:$C$9,0)), =DAYS($F$4,$D$4), =COUNTIF('Absen Tidak Masuk Kerja'!$C$4:$C$13,'Daftar Gaji Karyawan'!C8), =XLOOKUP(E8,Jabatan!$C$5:$C$9,Jabatan!$F$5:$F$9), =SUM(J8,L8,M8)
+
+6.=SWITCH(TRUE,C4>=95,"Seleksi",C4>=90,"P.Tetap",C4>=85,"P.Kontrak",C4>=80,"P.Lepas",,,"")
+
+7.=SWITCH(TRUE,C7="1A",400000,C7="1B",450000,C7="1C",500000,C7="2A",550000,C7="2B",600000,C7="2C",650000,0), =SWITCH(D7,"Nikah","TV","Belum","Radio")
+
+8.=INDEX($G$13:$G$27, MATCH(1, ($C$13:$C$27=$B$8)*($D$13:$D$27=C7),0)), =XLOOKUP(B9&C7,$C$13:$C$27&$D$13:$D$27,$G$13:$G$27), Data Cleaning : TRIM -> Data(Text to Columns) -> delimiter(space) -> PROPER -> UPPER -> Copy & Paste  (Text to Value)
+
+9.=INDEX($N$4:$P$4,MATCH(C3,$N$3:$P$3)), =XLOOKUP(E3,$M$8:$M$12,$N$8:$N$12), =SWITCH(TRUE,G3>10,I1*2%,G3>20,I1*5%,0), =SUMIFS($K$3:$K$17,$E$3:$E$17,B23), SUM, AVG
+
+excel-intermediate
+
+1.=SUMIF('Raw Dataset 1'!H3:H26,"<200",'Raw Dataset 1'!H3:H26), =SUM(('Raw Dataset 1'!F3:F26-'Raw Dataset 1'!G3:G26)*'Raw Dataset 1'!H3:H26), =SUM(IF('Raw Dataset 1'!F3:F26='Raw Dataset 1'!G3:G26,1,0)), =SUM(C6/(COUNTA('Raw Dataset 1'!B3:B26)-'Lat 1'!C7)), =SUM(IF(('Raw Dataset 1'!H3:H26>=101)*('Raw Dataset 1'!H3:H26<=250),1,0)), ="Q"&ROUNDUP(MONTH(A2)/3,0)&" "&YEAR(A2), =SUMIFS(Table3[Gross Order], Table3[Vendor], "Vendor I", Table3[Item], "Item A", Table3[Date], ">=1/1/2020", Table3[Date], "<=1/31/2020"), =SUMIFS(Table3[Gross Order],Table3[Vendor],"Vendor I",Table3[Item],"Item A",Table3[Date],">=1/1/2020",Table3[Date],"<=1/7/2020"), =(D7-C7)/C7(Week on week growth -> week2-week1/week1)
+
+2.copy&paste (a->b) change to number format -> give comma decrease decimal, =SUBSTITUTE([@[OLD IMAGE_URL]],"thumb","detail"), =IFS([@[Sale Price]] > 49, 0,AND([@[Sale Price]] >= 20, [@[Sale Price]] <= 49), 7.59, TRUE, 10.59), =IFS(D11=0,"Qualified",B11<15,"Qualified",C11<3,"Qualified",TRUE,"Not Qualified"), =PROPER(CONCAT(A7,," ",B7,," ",LEFT(C7,1),".")), =XLOOKUP(C4,$I$4:$I$18,$H$4:$H$18), ="Q"&ROUNDUP(MONTH(R2)/3,0)&" "&YEAR(R2), =IFS([@TL]="TL 1","OM 1",[@TL]="TL 2","OM 1",[@TL]="TL 3","OM 2",[@TL]="TL 4","OM 2",TRUE,"invalid")
+
+3.=IFERROR(INDEX(Data!C$2:C$82, SMALL(IF(Data!B$2:B$82=$B$9, ROW(Data!B$2:B$82)-ROW(Data!B$2)+1), ROW(1:1))), ""), =UNIQUE(Data!B2:B82), =FILTER(Data!D2:D82, Data!B2:B82=$B$9)
+
+4. =XLOOKUP([@MOVIE],Data!$A$2:$A$17,Data!$B$2:$B$17), =AVERAGE(Table2[@[Jul-21]:[Jan-22]]), =MIN(Table2[@[Jul-21]:[Jan-22]]), =MAX(Table2[@[Jul-21]:[Jan-22]]), =SUM(Table2[@[Jul-21]:[Jan-22]]), =[@[Jan-22]]/[@[Dec-21]]-1 (MoM), =IF([@Average]>AVERAGE([Average]),"Above Average","Below Average")
+
+excel-advanced
+
+1.Conditional Formatting (highlight in red bottom 10), |=IF(OR($H$6>=500000,$H$7>=25000),"Accept","Reject"), |=IF(AND($H$6>=500000,$H$7>=25000),"Accept","Reject"), Margin =price - cost, Unit Sold for Profit =(fixedcost + target profit / margin, Revenue =price * units sold, Variable Cost =(unitsold * costperunit), Fixed Cost =fixedcost, |=INDEX($F$10:$F$21,MATCH(1,($B$10:$B$21=$B$6)*($C$10:$C$21=C5),0)), |=XLOOKUP(1, ($B$10:$B$21=$B$7)*($C$10:$C$21=C5), $F$10:$F$21, "Not Found", 0)
+
+2.|=TEXT(B7,"ddd"), |=OR(J6="Sat",J6="Sun"), |=OR(D6="CGK_SUB", D6="CGK_PKU", D6="CGK_JOG", D6="SUB_CGK", D6="PKU_CGK", D6="JOG_CGK"), |=AND(B6>=DATE(2015,10,1),B6<=DATE(2015,10,15)), 
+|=IFS(
+  E6="Airlines 1", IF(K6, F6*0.04, 0),
+  E6="Airlines 2", P6,
+  E6="Airlines 3", IF(L6, 20000*F6, 0),
+  E6="Airlines 4", IF(M6, 15000*F6, 0),
+  E6="Airlines 5",
+    IF(F6<50000000, F6*0.01,
+      IF(F6<100000000, F6*0.02,
+        IF(F6<200000000, F6*0.03, F6*0.035))),
+  TRUE, 0
+)
+, |=SUMIFS($F$6:$F$647, $E$6:$E$647, "Airlines 2", $B$6:$B$647, B6), =IF(AND(E5="Airlines 2", O5>20), F5*0.05, 0), =SWITCH(I6, "Method 1", 0, "Method 2", H6*0.03, "Method 3", 4000, "Method 4", 3000, 0), 
+
+3.|=IF(E14<=$C$11, D15*(1+$C$6), ""), |=IF(D$14<=$C$11, D$15*$C$7, ""), |=IF(D14<=$C$11,D17-D22,""), |=LARGE($F$6:$F$17, $H7), |=SMALL($F$6:$F$17,H15), |=INDEX($B$6:$B$17,MATCH(I7,$F$6:$F$17,0)), |=XLOOKUP(I15,$F$6:$F$17,$B$6:$B$17,,0), |=IF($D6 < F$5, 0,
+  IF($D6 > EOMONTH(F$5,0), $C6,
+    $C6 * (DAY($D6)) / DAY(EOMONTH(F$5,0)))), 
+
+|=IF($D6 < F$5, 0,
+  IF($D6 <= EOMONTH(F$5,0),
+    $C6 * (DAY($D6) - DAY(F$5) + 1) / DAY(EOMONTH(F$5,0)),
+    $C6)) [Proration formula]	
+
+4.|=XLOOKUP(Test!B2, DTBS[CUSTOMER CODE], DTBS[CUSTOMER NAME],,,-1), |=LOOKUP(2, 1/(DTBS[CUSTOMER CODE]=Test!B2), Database!$C$2:$C$54448), |=TEXTJOIN(", ", TRUE, UNIQUE(FILTER(DTBS[Tax], DTBS[CUSTOMER CODE]=B2))), 
+|=IF(AND(
+   COUNTIFS(DTBS[CUSTOMER CODE],B3,DTBS[Tax],"PKP")>0,
+   COUNTIFS(DTBS[CUSTOMER CODE],B3,DTBS[Tax],"PTKP")>0),
+   "Both",
+   TEXTJOIN(", ", TRUE, UNIQUE(FILTER(DTBS[Tax], DTBS[CUSTOMER CODE]=B3)))), |=IF(D2="PKP", (G2+H2)*0.1, IF(D2="PTKP", 0, IF(D2="Both", (G2+H2) * (COUNTIFS(Database!$B$2:$B$54448, B2, Database!$D$2:$D$54448, "PKP") / COUNTIF(Database!$B$2:$B$54448, B2)) * 0.1, 0))), |=SUMIFS(DTBS[BOX QTY],DTBS[CUSTOMER NAME],Test!C2), 
+					
+
+excel-expert
+
+1.|="+"&XLOOKUP($O4, $E$2:$E$3002, $H$2:$H$3002, "Not Found"), |= LOWER(LEFT(XLOOKUP($O4, $E$2:$E$3002, $D$2:$D$3002), 4))& "***@"& IF(RAND()>0.5, "jossmail.com", "yuhuumail.com"), |=DATEDIF(XLOOKUP($O4, $E$2:$E$3002, $F$2:$F$3002), $R4, "Y"), 
+|=IF(DATEDIF($R4, $S4, "Y") >= 3, 0.025,
+   IF(DATEDIF($R4, $S4, "Y") >= 1, 0.015, 0)) +
+ IF($V4 >= 50, 0.04,
+   IF($V4 >= 40, 0.03,
+     IF($V4 >= 30, 0.02,
+       IF($V4 >= 20, 0.05, 0)))), |=COUNTIF($R:$R,"<"&DATE(2021,3,15)), |=Z11 * VLOOKUP("To be a Sales & Marketing Associate", $J$6:$L$9, 3, FALSE), |=Z11 * AVERAGE(K3:K4), |=SUMPRODUCT(($P$3:$P$1500="To be a Sales & Marketing Associate") * ($W$3:$W$1500) * VLOOKUP("To be a Sales & Marketing Associate", $J$6:$L$9, 3, FALSE)), |=SUMPRODUCT(($P$3:$P$1500="To be a Sales & Marketing Associate") *
+            (($Q$3:$Q$1500="LinkedIn") * $L$3 + ($Q$3:$Q$1500="Jobseeker") * $L$4) *
+            VLOOKUP("To be a Sales & Marketing Associate", $J$6:$L$9, 3, FALSE) * (1-$W$3:$W$1500)), |=Z11 * VLOOKUP("To be a Sales & Marketing Associate", $J$18:$K$21, 2, FALSE), |=SUMPRODUCT(($P$3:$P$1500="To be a Sales & Marketing Associate") *
+            IFERROR(INDEX($L$11:$L$16, MATCH(LEFT($T$3:$T$1500, 5)&"*", $J$11:$J$16, 0)), 0)), |=COUNTIFS($Q$3:$Q$1500, "LinkedIn", $P$3:$P$1500, "To be a Sales & Marketing Associate"), |=COUNTIFS($Q$3:$Q$1500, "LinkedIn",
+           $P$3:$P$1500, "To be a Sales & Marketing Associate",
+           $S$3:$S$1500, ">=5/1/2021",
+           $S$3:$S$1500, "<6/1/2021"), |=SUMPRODUCT(($Q$3:$Q$1500="LinkedIn") *
+            ($P$3:$P$1500="To be a Sales & Marketing Associate") *
+            VLOOKUP("To be a Sales & Marketing Associate", $J$6:$L$9, 3, FALSE) *
+            (1-$W$3:$W$1500)), |=SUMPRODUCT(($Q$3:$Q$1500="LinkedIn") *
+            ($P$3:$P$1500="To be a Sales & Marketing Associate") *
+            ($S$3:$S$1500>=DATE(2021,5,1)) *
+            ($S$3:$S$1500<DATE(2021,6,1)) *
+            VLOOKUP("To be a Sales & Marketing Associate", $J$6:$L$9, 3, FALSE) *
+            (1-$W$3:$W$1500)), |=Z49 * XLOOKUP(Y49,$K$12:$K$16,SMS_CHARGE), |=UNIQUE(SORT(FILTER($V$4:$V$1500, $V$4:$V$1500<>""))), |=COUNTIFS($V$4:$V$1500, ">=50",
+           $Q$4:$Q$1500, "LinkedIn",
+           $P$4:$P$1500, "To be a Sales & Marketing Associate"), |=SUMPRODUCT(($V$3:$V$1500>=50) *
+            (XLOOKUP($O$3:$O$1500, $E$3:$E$3002, $G$3:$G$3002, "")="Male"))
